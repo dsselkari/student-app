@@ -58,7 +58,7 @@ const Students = () => {
 
             dispatch(studentsUpdate(payload))
             toast.success('Details updated!',{
-                position:"top-right"
+                position:"bottom-right"
             })
             navigate("/")
 
@@ -72,7 +72,7 @@ const Students = () => {
             // alert()
             dispatch(studentsAdd(payload))
             toast.success('New Student Added!',{
-                position:"top-right"
+                position:"bottom-right"
             })
 
             navigate("/")
@@ -90,7 +90,7 @@ const Students = () => {
             email: location?.state?.isEditStudent ? location?.state?.studentData?.email : '',
             mobNo: location?.state?.isEditStudent ? location?.state?.studentData?.mobNo : '',
             paddress: location?.state?.isEditStudent ? location?.state?.studentData?.paddress : '',
-            gender: location?.state?.isEditStudent ? location?.state?.studentData?.gender : '',
+            gender: location?.state?.isEditStudent ? location?.state?.studentData?.gender : 'Male',
             dob: location?.state?.isEditStudent ? location?.state?.studentData?.dob : ''
         },
         validationSchema,
@@ -109,7 +109,7 @@ const Students = () => {
         <div className="mt-4  d-flex justify-content-center">
 
             <div className=" shadow  ">
-                <div className="text-center mt-4 mb-5 h5">Student Registration Form</div>
+                <div className="text-center  container py-3 bg-success text-light h5">Student Registration Form</div>
 
                 <div className="p-3 pt-0 mt-3">
                     <form onSubmit={formik.handleSubmit}>
@@ -257,8 +257,13 @@ const Students = () => {
                             </div>
 
                         </div>
-                        <div className="text-center my-3">
-                            <button className="btn btn-success w-50 " type="submit" >
+                        <div className="d-flex justify-content-between gap-2 my-3">
+                        <button className="btn btn-secondary mx-2 w-25" onClick={()=>{
+                            navigate("/")
+                        }} >
+                                { "Back"}
+                            </button>
+                            <button className="btn btn-success w-50  " type="submit" >
                                 {location?.state?.isEditStudent ? "Update" : "Submit"}
                             </button>
                         </div>

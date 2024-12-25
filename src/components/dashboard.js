@@ -12,7 +12,7 @@ const Dashboard = () => {
 
     return <React.Fragment>
         <div className="container">
-            <div className="text-center my-5">
+            <div className="text-center mt-2 mb-2 bg-success text-light py-3">
                 <h5>Students Management system</h5>
             </div>
             <div className="container">
@@ -20,6 +20,7 @@ const Dashboard = () => {
                     <div>
 
                         <Button
+                        className="bg-black text-light"
                             onClick={() => {
                                 navigate("/students", { state: { isEditStudent: false, studentData: {} } })
                             }}
